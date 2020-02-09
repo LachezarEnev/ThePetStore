@@ -1,0 +1,9 @@
+.dropdown:hover>.dropdown-menu {
+    display: block;
+  }
+
+  .image{
+    height:40em; background-size:cover; width:auto;
+    background-image:url('/assets/background.jpg');
+    background-position:50% 50%;
+  }

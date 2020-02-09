@@ -1,0 +1,27 @@
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-md-4">
+  <h1 class="text-italic text-center mt-5">Login</h1>
+  <form #loginForm="ngForm" (ngSubmit)="loginHandler(loginForm.value)">    
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input #usernameInput="ngModel" ngModel name="username" type="text" id="username" class="form-control" placeholder="Username..." required>
+    </div>
+    <div class="alert alert-danger" *ngIf="usernameInput.invalid && usernameInput.touched">
+      The field is required!
+    </div>  
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input #passInput="ngModel" ngModel name="password" type="password" id="password" class="form-control" placeholder="Password..." required>
+    </div>
+    <div class="alert alert-danger" *ngIf="passInput.invalid && passInput.touched">
+      The field is required!
+    </div>
+    <div class="text-center"> 
+    <button [disabled]="loginForm.invalid" class="btn btn-warning">Login</button>
+    </div>
+  </form>
+  <p class="text-center mt-3">Don't have account yet? <a routerLink="/auth/register"><span style="color:orange">Register</span></a></p>
+  </div>
+</div>
+</div>

@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" routerLink="/">The<span style="color:orange">Pet</span>Store</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>  
+    
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav mr-auto navbar-left">            
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" routerLink="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-paw"></i>
+              Pets
+            </a>
+            <div class="dropdown-menu bg-dark dropdown:hover>.dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" routerLink="#"><span style="color:orange">Buy</span></a>
+              <a class="dropdown-item" routerLink="#"><span style="color:orange">Adopt</span></a>
+              <div *ngIf='isLoggedIn'>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" routerLink="#"><span style="color:orange">Create</span></a>
+            </div>
+          </div>
+          </li>       
+      </ul> 
+      <ul class="navbar-nav navbar-right">          
+      <li *ngIf='!isLoggedIn' class="nav-item">
+        <a class="nav-link" routerLink="/auth/login"><i class="fas fa-user"></i> Profile</a>
+      </li>  
+      <li *ngIf='isLoggedIn' class="nav-item">
+        <a class="nav-link" routerLink="#"><i class="fas fa-user"></i> Hello, {{username}}!</a>
+      </li>    
+      <li *ngIf='isLoggedIn' class="nav-item">
+        <a class="nav-link" routerLink="#"><i class="fas fa-paw"></i> My Pets</a>
+      </li>
+      <li *ngIf='isLoggedIn' class="nav-item">
+        <a class="nav-link" (click)="logout()"><i class="fas fa-sign-out-alt"></i> Exit</a>
+      </li>
+    </ul>   
+    </div>    
+  </nav>
+  <div class="image">
+    <router-outlet></router-outlet>
+  </div>
+  
+ 

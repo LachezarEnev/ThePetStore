@@ -1,0 +1,39 @@
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-md-4">
+  <h1 class="text-italic text-center mt-5">Register</h1>
+  <form #registerForm="ngForm" (ngSubmit)="registerHandler(registerForm.value)">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input #usernameInput="ngModel" ngModel name="username" type="text" id="username" class="form-control" placeholder="Username..." required>
+    </div>
+    <div class="alert alert-danger" *ngIf="usernameInput.invalid && usernameInput.touched">
+        The field is required!
+      </div>     
+      <div ngModelGroup="passwords">
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input #passInput="ngModel" ngModel name="password" type="password" id="password" class="form-control" placeholder="Password..." required>
+    </div>
+    <div class="alert alert-danger" *ngIf="passInput.invalid && passInput.touched">
+        The field is required!
+      </div>
+    <div class="form-group">
+      <label for="rePassword">Repeat Password</label>
+      <input #rePassInput="ngModel" ngModel name="rePassword" type="password" id="rePassword" class="form-control" placeholder="Repeat Password..." required>
+    </div>    
+      <div class="alert alert-danger" *ngIf="rePassInput.invalid && rePassInput.touched">
+        The field is required!
+      </div>
+      <div class="alert alert-danger" *ngIf="registerForm?.controls?.passwords?.controls?.password.value != registerForm?.controls?.passwords?.controls?.rePassword.value">
+        Passwords do not match!
+      </div>
+    </div>
+    <div class="text-center"> 
+    <button [disabled]="registerForm.invalid" class="btn btn-warning">Register</button>
+    </div>
+  </form>
+  <p class="text-center mt-3">Already Registered? <a routerLink="/auth/login"><span style="color:orange">Login</span></a></p>
+</div>
+</div>
+</div>
