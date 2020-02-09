@@ -10,6 +10,8 @@ import { AuthModule } from './auth/auth.module';
 import { HttpClientModule} from '@angular/common/http';
 import { ToastrModule} from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { PetModule } from './pet/pet.module';
+import { PetRoutingModule } from './pet/pet-routing.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     SharedModule,
     HomeModule,
     AuthModule, 
+    PetModule,
+    PetRoutingModule,
     ToastrModule.forRoot(), 
     BrowserAnimationsModule,
     KinveyModule.init({
