@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PetService } from 'src/app/core/services/pet.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create',
@@ -7,13 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private petService: PetService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
 
-  createHandler(data: any){
+  createHandler(body: Object){    
+    body['username'] = localStorage.getItem('username');
+    body['likes'] = 0;
 
+    if (!body['price'] || body['price']< 0) {
+      body['price'] = 0;
+    
+    }
+
+    this.petService.createPet(body)
+    .subscribe(() => {
+      this.router.navigate([ '' ])
+    })
   }
-
 }

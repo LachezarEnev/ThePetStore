@@ -1,3 +1,32 @@
+<div *ngIf="allPets$">
+<div class="container">    
+    <div class="row">    
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-3" *ngFor="let pet of allPets$ | async">
+            <div class="card h-100 mt-2">
+                <div class="card-img-top center-block zoom">
+                    <img src="{{pet.imageURL}}">
+                </div>
+                <div class="card-body text-center h-25 pb-0 pt-0 pl-0 pr-0">                    
+                    <h6 class="card-title font-weight-bold">{{pet.title}}</h6>                    
+                </div>
+                <div class="mb-1">
+                    <ul class="list-group list-group-flush mb-0">
+                        <li class="list-group-item text-center font-weight-bold text-danger h5 ">{{pet.price}} BGN</li>
+                    </ul>
+                </div>
+                <div class="card-footer d-flex justify-content-around text-center bg-white">            
+                    <div class="mr-2">
+                        <button routerLink="#" class="text-warning">Details</button>  
+                    </div>                  
+                </div>
+                <div class="text-center">                
+                    <span class="text-info">{{pet.option}}</span>              
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>
+</div>
 
 
 

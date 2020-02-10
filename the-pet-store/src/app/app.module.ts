@@ -12,13 +12,16 @@ import { ToastrModule} from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { PetModule } from './pet/pet.module';
 import { PetRoutingModule } from './pet/pet-routing.module';
+import { PetService } from './core/services/pet.service';
+import { AuthService } from './core/services/auth.service';
+
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule,     
     HttpClientModule,    
     AppRoutingModule,
     SharedModule,
@@ -33,7 +36,7 @@ import { PetRoutingModule } from './pet/pet-routing.module';
       appSecret: 'dafe60e2e68d4a35a2c426e1174e257c'
     })    
   ],
-  providers: [],
+  providers: [PetService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
