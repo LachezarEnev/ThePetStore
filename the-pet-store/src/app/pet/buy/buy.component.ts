@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { PetService } from 'src/app/core/services/pet.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import Pet from 'src/app/core/models/Pet';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-buy',
+  templateUrl: './buy.component.html',
+  styleUrls: ['./buy.component.css']
 })
-export class HomeComponent implements OnInit { 
-  allPets$: Observable<Pet[]>;
-  
+export class BuyComponent implements OnInit {
+  buyPets$: Observable<Pet[]>;
+
   constructor(
     private petService: PetService,
     private route: ActivatedRoute,
@@ -19,11 +19,7 @@ export class HomeComponent implements OnInit {
     ) { }
 
   ngOnInit() { 
-    this.loadAllPets();       
-  }
-
-  loadAllPets() {
-    this.allPets$ = this.petService.getAll();
+    this.buyPets$ = this.petService.getAllForSale();   
   }
 
   like(id: string){
@@ -31,12 +27,12 @@ export class HomeComponent implements OnInit {
     .subscribe((pet) => {
       if(pet.username !== localStorage.getItem("username")){
         pet.likes++; 
-      }      
+      }     
       this.petService.updatePet(pet, id)
       .subscribe(() => {
-        this.loadAllPets(); 
+        this.router.navigate([ '' ])
       })   
-    });    
+    });   
   }
 
   isPublisher(username: string){

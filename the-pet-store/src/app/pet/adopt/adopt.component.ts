@@ -1,29 +1,25 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { PetService } from 'src/app/core/services/pet.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import Pet from 'src/app/core/models/Pet';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-adopt',
+  templateUrl: './adopt.component.html',
+  styleUrls: ['./adopt.component.css']
 })
-export class HomeComponent implements OnInit { 
-  allPets$: Observable<Pet[]>;
-  
+export class AdoptComponent implements OnInit {
+  adoptPets$: Observable<Pet[]>;
+
   constructor(
     private petService: PetService,
     private route: ActivatedRoute,
     private router: Router
     ) { }
 
-  ngOnInit() { 
-    this.loadAllPets();       
-  }
-
-  loadAllPets() {
-    this.allPets$ = this.petService.getAll();
+  ngOnInit() {    
+    this.adoptPets$ = this.petService.getAllForAdoption();   
   }
 
   like(id: string){
@@ -31,10 +27,10 @@ export class HomeComponent implements OnInit {
     .subscribe((pet) => {
       if(pet.username !== localStorage.getItem("username")){
         pet.likes++; 
-      }      
+      }     
       this.petService.updatePet(pet, id)
       .subscribe(() => {
-        this.loadAllPets(); 
+        this.router.navigate([ '' ])
       })   
     });    
   }

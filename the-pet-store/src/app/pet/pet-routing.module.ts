@@ -1,6 +1,8 @@
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from '../auth.guard';
 import { CreateComponent } from './create/create.component';
+import { AdoptComponent } from './adopt/adopt.component';
+import { BuyComponent } from './buy/buy.component';
 
 const routes: Routes = [
   {
@@ -18,7 +20,15 @@ const routes: Routes = [
         data: {
           isAuthenticated: true
         }        
-    } 
+    },
+    {
+      path: 'adopt',
+        component: AdoptComponent 
+    },
+    {
+      path: 'buy',
+        component: BuyComponent 
+    }
     ] 
   } 
 ];

@@ -7,12 +7,12 @@
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav mr-auto navbar-left">            
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" routerLink="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-paw"></i>
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-paw"></i>
               Pets
             </a>
             <div class="dropdown-menu bg-dark dropdown:hover>.dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" routerLink="#"><span style="color:orange">Buy</span></a>
-              <a class="dropdown-item" routerLink="#"><span style="color:orange">Adopt</span></a>
+              <a class="dropdown-item" routerLink="/pet/buy"><span style="color:orange">Buy</span></a>
+              <a class="dropdown-item" routerLink="/pet/adopt"><span style="color:orange">Adopt</span></a>
               <div *ngIf='isLoggedIn'>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" routerLink="/pet/create"><span style="color:orange">Create</span></a>
