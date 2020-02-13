@@ -1,0 +1,28 @@
+<div *ngIf="(pet$ | async) as pet">  
+<div class="container">       
+    <div class="row">
+        <div class="col-md-7 mt-2">
+            <p class="h4 text-center" style="color:chocolate">{{pet.title}}</p> 
+            <div class="zoom">
+                <img src="{{pet.imageURL}}">
+                <p class="h5 text-muted mt-2">Category: {{pet.category}}</p>                              
+            </div>
+        </div>
+        <div class="col-md-5"> 
+            <div class="card-body bg-transparent shadow  mt-5">       
+                <p class="font-weight-bold text-danger h6">Price: {{pet.price}} BGN</p>
+                <p class="font-weight-bold h6"><span class="text-muted">Tel:</span> {{pet.phone}}</p>
+                 <p class="font-weight-bold h6"><span class="text-muted">Seller:</span> {{pet.username}}</p>
+                <p class="font-weight-bold h6"><span class="text-muted">Address:</span> {{pet.address}}</p>
+            </div>
+            <div class="card-body bg-transparent shadow mt-3">
+                <dl>  
+                    <p class="font-weight-bold h6 text-muted">Description:</p>                   
+                    <dd class="mt-1">{{pet.description}}</dd>
+                </dl>
+            </div>           
+        </div>
+    </div>
+</div>
+</div>
+

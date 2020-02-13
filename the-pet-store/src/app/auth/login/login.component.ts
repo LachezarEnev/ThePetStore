@@ -17,12 +17,12 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  loginHandler(data: any){
+  loginHandler(data: any){    
     this.authService.signIn(data)
-    .subscribe((data) =>
-    this.authService.saveUserInfo(data));   
-
-    this.router.navigate(['']);
+    .subscribe((data) => {
+      this.authService.saveUserInfo(data),
+      this.router.navigate([''])
+    });
   }
-
+  
 }

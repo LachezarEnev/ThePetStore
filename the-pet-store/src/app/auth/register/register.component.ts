@@ -26,9 +26,10 @@ export class RegisterComponent implements OnInit {
       password
     };
     this.authService.signUp(body)
-    .subscribe((data) =>
-    this.authService.saveUserInfo(data));
-
-    this.router.navigate(['']);
+    .subscribe((data) => {
+      this.authService.saveUserInfo(data),
+      this.router.navigate([''])
+    });
+    
   }
 }

@@ -10,12 +10,12 @@ import Pet from 'src/app/core/models/Pet';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit { 
-  allPets$: Observable<Pet[]>;
+  allPets$: Observable<Pet[]>;  
   
   constructor(
     private petService: PetService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router    
     ) { }
 
   ngOnInit() { 
@@ -42,4 +42,5 @@ export class HomeComponent implements OnInit {
   isPublisher(username: string){
     return username === localStorage.getItem("username");
   }
-}
+
+}   

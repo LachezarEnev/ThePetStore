@@ -3,6 +3,7 @@ import { AuthGuard } from '../auth.guard';
 import { CreateComponent } from './create/create.component';
 import { AdoptComponent } from './adopt/adopt.component';
 import { BuyComponent } from './buy/buy.component';
+import { DetailsComponent } from './details/details.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,10 @@ const routes: Routes = [
     {
       path: 'buy',
         component: BuyComponent 
+    },
+    {
+      path: 'details/:id',
+        component: DetailsComponent 
     }
     ] 
   } 
