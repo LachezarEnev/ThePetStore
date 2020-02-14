@@ -4,6 +4,8 @@ import { CreateComponent } from './create/create.component';
 import { AdoptComponent } from './adopt/adopt.component';
 import { BuyComponent } from './buy/buy.component';
 import { DetailsComponent } from './details/details.component';
+import { EditComponent } from './edit/edit.component';
+import { MyPetsComponent } from './my-pets/my-pets.component';
 
 const routes: Routes = [
   {
@@ -33,6 +35,14 @@ const routes: Routes = [
     {
       path: 'details/:id',
         component: DetailsComponent 
+    },
+    {
+      path: 'edit/:id',
+        component: EditComponent 
+    },
+    {
+      path: 'my-pets',
+        component: MyPetsComponent 
     }
     ] 
   } 

@@ -12,15 +12,27 @@
             <div class="card-body bg-transparent shadow  mt-5">       
                 <p class="font-weight-bold text-danger h6">Price: {{pet.price}} BGN</p>
                 <p class="font-weight-bold h6"><span class="text-muted">Tel:</span> {{pet.phone}}</p>
-                 <p class="font-weight-bold h6"><span class="text-muted">Seller:</span> {{pet.username}}</p>
+                <p class="font-weight-bold h6"><span class="text-muted">Seller:</span> {{pet.username}}</p>
                 <p class="font-weight-bold h6"><span class="text-muted">Address:</span> {{pet.address}}</p>
+                <p class="font-weight-bold h6"><span class="text-muted">For:</span> {{pet.option}}</p>
             </div>
             <div class="card-body bg-transparent shadow mt-3">
                 <dl>  
                     <p class="font-weight-bold h6 text-muted">Description:</p>                   
                     <dd class="mt-1">{{pet.description}}</dd>
                 </dl>
-            </div>           
+            </div>  
+            <div *ngIf="isPublisher(pet.username)">
+                <div class="d-flex justify-content-around text-center mt-3"> 
+                    <div class="d-flex justify-content-between">           
+                    <div class="mr-2">
+                        <button routerLink="/pet/edit/{{pet._id}}" class="myButton-orange"><i class="fas fa-edit"></i> Edit</button>  
+                    </div>                     
+                    <div>
+                        <button class="nav-link" (click)="delete(pet._id, pet.title)" class="myButton-red"><i class="fas fa-trash"></i> Delete</button>   
+                    </div>                                        
+                </div>  
+            </div>         
         </div>
     </div>
 </div>

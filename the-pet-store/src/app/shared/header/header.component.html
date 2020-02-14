@@ -4,22 +4,22 @@
       <span class="navbar-toggler-icon"></span>
     </button>  
     
-    <div class="collapse navbar-collapse" id="navbarColor01">
-      <ul class="navbar-nav mr-auto navbar-left">            
+    <div class="collapse navbar-collapse" id="navbarColor01">      
+      <ul class="navbar-nav mr-auto navbar-left"> 
+        <div *ngIf='isLoggedIn'>        
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-paw"></i>
               Pets
             </a>
             <div class="dropdown-menu bg-dark dropdown:hover>.dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" routerLink="/pet/buy"><span style="color:orange">Buy</span></a>
-              <a class="dropdown-item" routerLink="/pet/adopt"><span style="color:orange">Adopt</span></a>
-              <div *ngIf='isLoggedIn'>
+              <a class="dropdown-item" routerLink="/pet/adopt"><span style="color:orange">Adopt</span></a>              
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" routerLink="/pet/create"><span style="color:orange">Create</span></a>
-            </div>
+              <a class="dropdown-item" routerLink="/pet/create"><span style="color:orange">Create</span></a>            
           </div>
-          </li>       
-      </ul> 
+          </li> 
+        </div>      
+      </ul>     
       <ul class="navbar-nav navbar-right">          
       <li *ngIf='!isLoggedIn' class="nav-item">
         <a class="nav-link" routerLink="/auth/login"><i class="fas fa-user"></i> Profile</a>
@@ -28,7 +28,7 @@
         <a class="nav-link" routerLink="#"><i class="fas fa-user"></i> Hello, {{username}}!</a>
       </li>    
       <li *ngIf='isLoggedIn' class="nav-item">
-        <a class="nav-link" routerLink="#"><i class="fas fa-paw"></i> My Pets</a>
+        <a class="nav-link" routerLink="/pet/my-pets"><i class="fas fa-paw"></i> My Pets</a>
       </li>
       <li *ngIf='isLoggedIn' class="nav-item">
         <a class="nav-link" (click)="logout()"><i class="fas fa-sign-out-alt"></i> Exit</a>

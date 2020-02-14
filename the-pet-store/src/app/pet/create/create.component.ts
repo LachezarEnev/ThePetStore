@@ -29,6 +29,6 @@ export class CreateComponent implements OnInit {
     this.petService.createPet(body)
     .subscribe(() => {
       this.router.navigate([ '' ])
-    })
+    });
   }
 }

@@ -1,27 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { PetService } from 'src/app/core/services/pet.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import Pet from 'src/app/core/models/Pet';
 import { Observable } from 'rxjs';
+import Pet from 'src/app/core/models/Pet';
+import { PetService } from 'src/app/core/services/pet.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-details',
-  templateUrl: './details.component.html',
-  styleUrls: ['./details.component.css']
+  selector: 'app-my-pets',
+  templateUrl: './my-pets.component.html',
+  styleUrls: ['./my-pets.component.css']
 })
-export class DetailsComponent implements OnInit {
-  id: string;
-  pet$: Observable<Pet>;
+export class MyPetsComponent implements OnInit {  
+  myPets$: Observable<Pet[]>;
+  username =  localStorage.getItem("username")
 
   constructor(
     private petService: PetService,
-    private route: ActivatedRoute,
     private router: Router
   ) { }
 
   ngOnInit(): void {    
-    this.id = this.route.snapshot.params['id'];
-    this.pet$ = this.petService.getPetById(this.id);      
+    this.myPets$ = this.petService.getMyPets(this.username);
   }
 
   isPublisher(username: string){

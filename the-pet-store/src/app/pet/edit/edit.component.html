@@ -1,0 +1,81 @@
+<div *ngIf="pet">  
+<div class="container">
+    <div class="row justify-content-center">
+    <div class="col-md-6">
+<form #editForm="ngForm" (ngSubmit)="editHandler(editForm.value)">   
+    <div class="text-center mb-4">
+      <h1 class="h3 mb-3 font-weight-normal mt-3">Edit</h1>     
+    </div>
+    <div class="form-label-group">
+        <label for="Title" class="control-label"></label>
+      <input #titleInput="ngModel" [(ngModel)]="pet.title" type="text" name="title" class="form-control" placeholder="Title..." required>      
+    </div>
+    <div class="alert alert-danger" *ngIf="titleInput.invalid && titleInput.touched">
+        The field is required!
+      </div> 
+    <div class="form-label-group">
+        <label for="Address" class="control-label"></label>
+      <input #addressInput="ngModel" [(ngModel)]="pet.address" type="text"  name="address" class="form-control" placeholder="Address..." required>      
+    </div>
+    <div class="alert alert-danger" *ngIf="addressInput.invalid && addressInput.touched">
+        The field is required!
+      </div> 
+    <div class="form-label-group">
+        <label for="Description" class="control-label"></label>
+      <textarea [(ngModel)]="pet.description" type="text"  name="description" class="form-control" placeholder="Description..."></textarea>     
+    </div>
+    <div class="d-flex justify-content-between">
+        <div class="form-group w-45">            
+            <label for="Price" class="control-label"></label>            
+            <input #priceInput="ngModel" [(ngModel)]="pet.price" type="number" for="Price" name="price" class="form-control" placeholder="Price..."/>            
+        </div>        
+        <div class="form-group w-45">
+            <label for="Phone" class="control-label"></label>           
+            <input #phoneInput="ngModel" [(ngModel)]="pet.phone" type="text"  name="phone" class="form-control" placeholder="Phone..." required>          
+        </div>
+        <div class="alert alert-danger" *ngIf="phoneInput.invalid && phoneInput.touched">
+            The field is required!
+          </div>
+    </div>
+    <div class="d-flex justify-content-between mt-2">
+        <div class="form-group w-45">
+        <label for="Type" class="control-label"></label>
+        <select #categoryInput="ngModel" [(ngModel)]="pet.category" id="category" name="category" class="p-1" required>
+            <option value="">-Please choose category-</option>
+            <option value="dog">Dog</option>
+            <option value="cat">Cat</option>
+            <option value="bird">Bird</option>
+            <option value="other">Other</option>
+         </select>   
+        </div> 
+        <div class="alert alert-danger" *ngIf="categoryInput.invalid && categoryInput.touched">
+          The field is required!
+        </div>
+        <div class="form-group w-45">
+          <label for="Type" class="control-label"></label>
+          <select #optionInput="ngModel" [(ngModel)]="pet.option" id="option" name="option" class="p-1" required>
+              <option value="">--Please choose option--</option>
+              <option value="sale">For sale</option>
+              <option value="adoption">For adoption</option>              
+           </select>   
+          </div>
+          <div class="alert alert-danger" *ngIf="optionInput.invalid && optionInput.touched">
+            The field is required!
+          </div>
+    </div>   
+    <div class="form-label-group">
+        <label for="Image" class="control-label"></label>
+      <input #imageInput="ngModel" [(ngModel)]="pet.imageURL" type="text"  name="imageURL" class="form-control" placeholder="Image (http://...)" required>     
+    </div>
+    <div class="alert alert-danger" *ngIf="imageInput.invalid && imageInput.touched">
+        The field is required!
+      </div>
+    <div class="text-center mt-3"> 
+    <button [disabled]="editForm.invalid" class="btn btn-lg btn-dark btn-block">Save</button>
+    </div>
+  </form>
+</div>
+</div>
+</div>
+</div>
+
