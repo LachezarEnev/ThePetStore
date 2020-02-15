@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PetService } from 'src/app/core/services/pet.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-create',
@@ -11,7 +12,8 @@ export class CreateComponent implements OnInit {
 
   constructor(
     private petService: PetService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -28,7 +30,8 @@ export class CreateComponent implements OnInit {
 
     this.petService.createPet(body)
     .subscribe(() => {
-      this.router.navigate([ '' ])
+      this.toastr.success('Pet created successfully!', 'Succsess!');
+      this.router.navigate([ '/pet/my-pets' ])
     });
   }
 }

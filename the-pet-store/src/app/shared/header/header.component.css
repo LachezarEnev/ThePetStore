@@ -3,7 +3,12 @@
   }
 
   .image{
-    height:40em; background-size:cover; width:auto;
+    height:auto; min-height: 40em; background-size:cover; width:auto;
     background-image:url('/assets/background.jpg');
     background-position:50% 50%;
+  }
+
+  .home{
+    background-color:rgba(255, 255, 255, 0.781);
+    height: auto; width: auto; min-height: 40em;  
   }

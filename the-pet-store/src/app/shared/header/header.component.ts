@@ -1,6 +1,7 @@
-import { Component,  DoCheck } from '@angular/core';
+import { Component,  DoCheck, ViewChild } from '@angular/core';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +9,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements DoCheck {
- 
+ @ViewChild('searchForm') searchForm: NgForm;
+
   username: string ='';
   isLoggedIn: boolean;
 
@@ -26,8 +28,12 @@ export class HeaderComponent implements DoCheck {
     this.authService.logout()
     .subscribe(() => {
       localStorage.clear();
-      this.router.navigate([ '/auth/login' ])
+      this.router.navigate([ '' ])
     })
   }
 
+  search(){
+    const query = this.searchForm.value;    
+        this.router.navigate([ 'pet/search' ], {queryParams: { search: query.search } } )
+  }
 }

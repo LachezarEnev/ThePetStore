@@ -18,8 +18,20 @@
               <a class="dropdown-item" routerLink="/pet/create"><span style="color:orange">Create</span></a>            
           </div>
           </li> 
-        </div>      
-      </ul>     
+        </div> 
+        <div *ngIf='isLoggedIn' class="ml-3">
+          <form #searchForm="ngForm" (ngSubmit)="search()">
+              <div class="row">
+                  <div class="col-7">
+                  <input ngModel class="form-control" type="text" name="search" placeholder="Search a pet..." aria-label="Search" required>
+              </div>
+              <div class="col-5">
+                  <button [disabled]="searchForm.invalid" class="btn btn-default" type="submit"><span style="color: orange;"><i class="fas fa-search"></i> Search</span></button>
+              </div>
+              </div>          
+          </form>
+      </div> 
+      </ul>            
       <ul class="navbar-nav navbar-right">          
       <li *ngIf='!isLoggedIn' class="nav-item">
         <a class="nav-link" routerLink="/auth/login"><i class="fas fa-user"></i> Profile</a>

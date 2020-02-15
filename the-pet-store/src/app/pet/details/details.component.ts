@@ -3,6 +3,7 @@ import { PetService } from 'src/app/core/services/pet.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import Pet from 'src/app/core/models/Pet';
 import { Observable } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-details',
@@ -16,7 +17,8 @@ export class DetailsComponent implements OnInit {
   constructor(
     private petService: PetService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {    
@@ -31,8 +33,10 @@ export class DetailsComponent implements OnInit {
   delete(id: string, title: string){
     if (confirm("Are you sure you want to delete "+title)) {
       this.petService.delete(id)
-      .subscribe(() => 
-      this.router.navigate(['']));
+      .subscribe(() => {
+        this.toastr.success('Pet deleted successfully!', 'Succsess!');
+        this.router.navigate(['']);
+      });
     }   
   }
 }

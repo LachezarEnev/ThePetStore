@@ -8,11 +8,12 @@ import { BuyComponent } from './buy/buy.component';
 import { DetailsComponent } from './details/details.component';
 import { EditComponent } from './edit/edit.component';
 import { MyPetsComponent } from './my-pets/my-pets.component';
+import { SearchComponent } from './search/search.component';
 
 
 
 @NgModule({
-  declarations: [CreateComponent, AdoptComponent, BuyComponent, DetailsComponent, EditComponent, MyPetsComponent],
+  declarations: [CreateComponent, AdoptComponent, BuyComponent, DetailsComponent, EditComponent, MyPetsComponent, SearchComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,

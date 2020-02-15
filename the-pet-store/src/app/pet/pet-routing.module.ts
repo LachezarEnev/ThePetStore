@@ -6,6 +6,7 @@ import { BuyComponent } from './buy/buy.component';
 import { DetailsComponent } from './details/details.component';
 import { EditComponent } from './edit/edit.component';
 import { MyPetsComponent } from './my-pets/my-pets.component';
+import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
   {
@@ -43,8 +44,15 @@ const routes: Routes = [
     {
       path: 'my-pets',
         component: MyPetsComponent 
-    }
-    ] 
+    },
+    {
+      path: 'search',
+        component: SearchComponent 
+    }    
+    ], canActivate: [AuthGuard],
+      data: {
+      isAuthenticated: true
+    } 
   } 
 ];
 
