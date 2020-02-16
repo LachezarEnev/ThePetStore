@@ -9,15 +9,19 @@ import { DetailsComponent } from './details/details.component';
 import { EditComponent } from './edit/edit.component';
 import { MyPetsComponent } from './my-pets/my-pets.component';
 import { SearchComponent } from './search/search.component';
+import { NoResultComponent } from './no-result/no-result.component';
+import { PetRoutingModule } from './pet-routing.module';
+import { CategoryComponent } from './category/category.component';
 
 
 
 @NgModule({
-  declarations: [CreateComponent, AdoptComponent, BuyComponent, DetailsComponent, EditComponent, MyPetsComponent, SearchComponent],
+  declarations: [CreateComponent, AdoptComponent, BuyComponent, DetailsComponent, EditComponent, MyPetsComponent, SearchComponent, NoResultComponent, CategoryComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,
-    FormsModule
+    FormsModule,
+    PetRoutingModule   
   ]
 })
 export class PetModule { }

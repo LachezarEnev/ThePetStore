@@ -7,6 +7,10 @@ import { DetailsComponent } from './details/details.component';
 import { EditComponent } from './edit/edit.component';
 import { MyPetsComponent } from './my-pets/my-pets.component';
 import { SearchComponent } from './search/search.component';
+import { NoResultComponent } from './no-result/no-result.component';
+import { NotFoundComponent } from '../not-found/not-found.component';
+import { CategoryComponent } from './category/category.component';
+
 
 const routes: Routes = [
   {
@@ -19,11 +23,7 @@ const routes: Routes = [
     },
     {
         path: 'create',
-        component: CreateComponent, 
-        canActivate: [AuthGuard],
-        data: {
-          isAuthenticated: true
-        }        
+        component: CreateComponent               
     },
     {
       path: 'adopt',
@@ -48,7 +48,19 @@ const routes: Routes = [
     {
       path: 'search',
         component: SearchComponent 
-    }    
+    } ,
+    {
+      path: 'no-result',
+        component: NoResultComponent 
+    },
+    {
+      path: 'category',
+        component: CategoryComponent 
+    },       
+    {
+      path: '**',
+      component: NotFoundComponent
+    }   
     ], canActivate: [AuthGuard],
       data: {
       isAuthenticated: true

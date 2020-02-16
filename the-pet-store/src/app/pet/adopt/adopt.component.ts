@@ -30,7 +30,7 @@ export class AdoptComponent implements OnInit {
       }     
       this.petService.updatePet(pet, id)
       .subscribe(() => {
-        this.router.navigate([ '' ])
+        this.adoptPets$ = this.petService.getAllForAdoption(); 
       })   
     });    
   }

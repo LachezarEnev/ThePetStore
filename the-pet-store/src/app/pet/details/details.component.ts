@@ -35,7 +35,7 @@ export class DetailsComponent implements OnInit {
       this.petService.delete(id)
       .subscribe(() => {
         this.toastr.success('Pet deleted successfully!', 'Succsess!');
-        this.router.navigate(['']);
+        this.router.navigate(['/pet/my-pets']);
       });
     }   
   }

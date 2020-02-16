@@ -2,6 +2,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent} from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from '../auth.guard';
+import { NotFoundComponent } from '../not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
         data: {
           isAuthenticated: false
         }  
+    },
+    {
+      path: '**',
+      component: NotFoundComponent
     }
     ] 
   } 

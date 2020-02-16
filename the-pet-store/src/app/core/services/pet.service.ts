@@ -10,7 +10,7 @@ export class PetService {
   private readonly BASE_URL = `https://baas.kinvey.com/appdata/${APP_KEY}`;
   private readonly ALL_PETS = `${this.BASE_URL}/pets/?query={}&sort={"likes": -1}`;
   private readonly ALL_ADOPTION_PETS = `${this.BASE_URL}/pets/?query={"option":"adoption"}&sort={"likes": -1}`;
-  private readonly ALL_FORSELL_PETS = `${this.BASE_URL}/pets/?query={"option":"sale"}&sort={"likes": -1}`;
+  private readonly ALL_FORSELL_PETS = `${this.BASE_URL}/pets/?query={"option":"sale"}&sort={"likes": -1}`;  
   private readonly PETS_LINK = `${this.BASE_URL}/pets`; 
   constructor(
     private http: HttpClient  
@@ -78,6 +78,14 @@ export class PetService {
         'Authorization': `Kinvey ${localStorage.getItem('token')}`
     })
   }); 
+  }
+
+  getCategory(category: string) {   
+    return this.http.get<Pet[]>(`${this.BASE_URL}/pets/?query={"category": "${category}"}&sort={"likes": -1}`, {
+      headers: new HttpHeaders({
+        'Authorization': `Kinvey ${localStorage.getItem('token')}`
+    })
+  });
   }
   
 }

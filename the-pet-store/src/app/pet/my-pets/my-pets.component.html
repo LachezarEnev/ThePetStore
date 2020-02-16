@@ -1,40 +1,54 @@
+<div class="h2 text-center font-weight-bold pt-3 pb-3" style="color: peru;">My Pets</div>
 <div *ngIf="myPets$">    
-    <div class="container">    
-        <div class="row">    
-            <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-3" *ngFor="let pet of myPets$ | async">
-                <div class="card h-100 mt-2">
-                    <div class="card-img-top image-container center-block zoom">
-                        <img src="{{pet.imageURL}}">
-                    </div>
-                    <div class="card-body text-center h-25 pb-0 pt-0 pl-0 pr-0">                    
-                        <h5 class="card-title font-weight-bold" style="color:grey"><i>{{pet.title}}</i></h5>                    
-                    </div>
-                    <div class="card-body text-center h-25 pb-0 pt-0 pl-0 pr-0 mt-3">                    
-                        <h6 class="card-title font-weight-bold">Tel: {{pet.phone}}</h6>                    
-                    </div>
-                    <div class="mb-1">
-                        <ul class="list-group list-group-flush mb-0">
-                            <li class="list-group-item text-center text-danger h5 ">{{pet.price}} BGN</li>
-                        </ul>
-                    </div>
-                    <div class="card-footer d-flex justify-content-around text-center bg-white"> 
-                        <div class="d-flex justify-content-between">           
-                        <div class="mr-2">
-                            <button routerLink="/pet/details/{{pet._id}}" class="text-warning">Details</button>  
+    <div class="container"> 
+        <table class="table">
+            <thead>
+                <tr class="row">
+                    <th scope="col" class="col-1 d-flex justify-content-center"></th>
+                    <th scope="col" class="col-4 d-flex justify-content-center">Title</th>
+                    <th scope="col" class="col-2 d-flex justify-content-center">Price</th>
+                    <th scope="col" class="col-1 d-flex justify-content-center">For</th>
+                    <th scope="col" class="col-1 d-flex justify-content-center">Likes</th>                    
+                    <th scope="col" class="col-3 d-flex justify-content-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <div *ngFor="let pet of myPets$ | async">
+                <tr class="row">
+                    <td class="col-1 d-flex justify-content-center">                       
+                        <img src="{{pet.imageURL}}" routerLink="/pet/details/{{pet._id}}" width="50" height="50">                       
+                    </td>
+                    <td class="col-4">
+                        {{pet.title}}
+                    </td>
+                    <td class="col-2 text-center">
+                        {{pet.price}} BGN
+                    </td>
+                    <td class="col-1 text-center">
+                        {{pet.option}}
+                    </td>
+                    <td class="col-1">
+                        <i class="fas fa-heart pl-3" style="color: darkred;"></i> {{pet.likes}} 
+                    </td>
+                    <td class="col-3 d-flex justify-content-around">
+                        <div>
+                            <button routerLink="/pet/details/{{pet._id}}" class="text-info">Details</button>  
+                        </div> 
+                        <div>
+                            <button routerLink="/pet/edit/{{pet._id}}" class="text-warning pl-3 pr-3">Edit</button>  
                         </div>                     
                         <div>
-                            <button class="nav-link" (click)="delete(pet._id, pet.title)" class="text-danger pl-2 pr-2">Delete</button> 
-                        </div>                                          
-                    </div>                                
-                    </div>
-                    <div class="text-center">                
-                        <span class="text-info">{{pet.option}}</span>              
-                    </div>
-                </div>
+                            <button class="nav-link" (click)="delete(pet._id, pet.title)" class="text-danger">Delete</button> 
+                        </div>
+                    </td>
+                </tr>
             </div>
-        </div>    
-    </div>
-    </div>
+        </tbody>
+    </table>
+</div>
+
+
+  
     
     
     

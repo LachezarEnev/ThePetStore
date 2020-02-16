@@ -36,4 +36,7 @@ export class HeaderComponent implements DoCheck {
     const query = this.searchForm.value;    
         this.router.navigate([ 'pet/search' ], {queryParams: { search: query.search } } )
   }
+  getHome(){
+    this.router.navigate([ '' ])
+  }
 }

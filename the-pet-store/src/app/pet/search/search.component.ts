@@ -28,9 +28,12 @@ export class SearchComponent implements OnInit, OnDestroy {
     .subscribe((data) => {
       this.searchedPets = data.filter(p => p.title.toLowerCase().includes(this.query.toLowerCase()) 
       || p.category.includes(this.query.toLowerCase())
-      || this.query.toLowerCase().includes(p.category))      
-      });         
-    });   
+      || this.query.toLowerCase().includes(p.category));
+      if(this.searchedPets.length === 0) {
+        this.router.navigate(['/pet/no-result'])
+      }      
+      });             
+    }); 
   }
 
   ngOnDestroy(){

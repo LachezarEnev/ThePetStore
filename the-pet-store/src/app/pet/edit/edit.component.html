@@ -43,8 +43,7 @@
         <select #categoryInput="ngModel" [(ngModel)]="pet.category" id="category" name="category" class="p-1" required>
             <option value="">-Please choose category-</option>
             <option value="dog">Dog</option>
-            <option value="cat">Cat</option>
-            <option value="rabbit">Rabbit</option>
+            <option value="cat">Cat</option>           
             <option value="bird">Bird</option>
             <option value="fish">Fish</option>            
             <option value="other">Other</option>
@@ -67,10 +66,13 @@
     </div>   
     <div class="form-label-group">
         <label for="Image" class="control-label"></label>
-      <input #imageInput="ngModel" [(ngModel)]="pet.imageURL" type="text"  name="imageURL" class="form-control" placeholder="Image (http://...)" required>     
+      <input #imageInput="ngModel" pattern="^https?:\/\/(.*)" [(ngModel)]="pet.imageURL" type="text"  name="imageURL" class="form-control" placeholder="Image (http://...)" required>     
     </div>
     <div class="alert alert-danger" *ngIf="imageInput.invalid && imageInput.touched">
         The field is required!
+      </div>
+      <div class="alert alert-danger" *ngIf="editForm.controls.imageURL?.errors?.pattern">
+        The URL address is invalid! 
       </div>
     <div class="text-center mt-3"> 
     <button [disabled]="editForm.invalid" class="btn btn-lg btn-dark btn-block">Save</button>

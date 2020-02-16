@@ -30,7 +30,7 @@ export class BuyComponent implements OnInit {
       }     
       this.petService.updatePet(pet, id)
       .subscribe(() => {
-        this.router.navigate([ '' ])
+        this.buyPets$ = this.petService.getAllForSale();   
       })   
     });   
   }

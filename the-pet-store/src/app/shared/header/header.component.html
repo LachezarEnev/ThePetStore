@@ -37,7 +37,7 @@
         <a class="nav-link" routerLink="/auth/login"><i class="fas fa-user"></i> Profile</a>
       </li>  
       <li *ngIf='isLoggedIn' class="nav-item">
-        <a class="nav-link" routerLink="#"><i class="fas fa-user"></i> Hello, {{username}}!</a>
+        <a class="nav-link" disabled routerLink="#"><i class="fas fa-user"></i> Hello, {{username}}!</a>
       </li>    
       <li *ngIf='isLoggedIn' class="nav-item">
         <a class="nav-link" routerLink="/pet/my-pets"><i class="fas fa-paw"></i> My Pets</a>
@@ -48,8 +48,7 @@
     </ul>   
     </div>    
   </nav>
-  <div class="image">
-    <router-outlet></router-outlet>
-  </div>
+ 
+  
   
  

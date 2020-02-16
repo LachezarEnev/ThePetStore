@@ -33,7 +33,7 @@ export class MyPetsComponent implements OnInit {
       this.petService.delete(id)
       .subscribe(() => {
         this.toastr.success('Pet deleted successfully!', 'Succsess!')
-        this.router.navigate(['']);
+        this.myPets$ = this.petService.getMyPets(this.username);
       });      
     }   
   }
