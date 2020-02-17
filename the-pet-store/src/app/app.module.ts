@@ -6,11 +6,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { HomeModule } from './home/home.module';
-import { AuthModule } from './auth/auth.module';
 import { HttpClientModule} from '@angular/common/http';
 import { ToastrModule} from 'ngx-toastr';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { PetModule } from './pet/pet.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PetService } from './core/services/pet.service';
 import { AuthService } from './core/services/auth.service';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -26,9 +24,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     HttpClientModule,    
     AppRoutingModule,
     SharedModule,
-    HomeModule,
-    AuthModule, 
-    PetModule,    
+    HomeModule,        
     ToastrModule.forRoot(), 
     BrowserAnimationsModule,
     KinveyModule.init({

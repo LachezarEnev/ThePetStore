@@ -1,5 +1,4 @@
 import { Routes, RouterModule } from '@angular/router';
-import { AuthGuard } from '../auth.guard';
 import { CreateComponent } from './create/create.component';
 import { AdoptComponent } from './adopt/adopt.component';
 import { BuyComponent } from './buy/buy.component';
@@ -8,64 +7,51 @@ import { EditComponent } from './edit/edit.component';
 import { MyPetsComponent } from './my-pets/my-pets.component';
 import { SearchComponent } from './search/search.component';
 import { NoResultComponent } from './no-result/no-result.component';
-import { NotFoundComponent } from '../not-found/not-found.component';
 import { CategoryComponent } from './category/category.component';
 
 
-const routes: Routes = [
-  {
-    path: 'pet',
-    children: [
+const routes: Routes = [ 
     {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'create',
+        redirectTo: 'create'       
     },
     {
         path: 'create',
-        component: CreateComponent               
+        component: CreateComponent                    
     },
     {
       path: 'adopt',
-        component: AdoptComponent 
+        component: AdoptComponent      
     },
     {
       path: 'buy',
-        component: BuyComponent 
+        component: BuyComponent      
     },
     {
       path: 'details/:id',
-        component: DetailsComponent 
+        component: DetailsComponent     
     },
     {
       path: 'edit/:id',
-        component: EditComponent 
+        component: EditComponent     
     },
     {
       path: 'my-pets',
-        component: MyPetsComponent 
+        component: MyPetsComponent     
     },
     {
       path: 'search',
-        component: SearchComponent 
+        component: SearchComponent      
     } ,
     {
       path: 'no-result',
-        component: NoResultComponent 
+        component: NoResultComponent       
     },
     {
       path: 'category',
-        component: CategoryComponent 
-    },       
-    {
-      path: '**',
-      component: NotFoundComponent
+        component: CategoryComponent       
     }   
-    ], canActivate: [AuthGuard],
-      data: {
-      isAuthenticated: true
-    } 
-  } 
-];
+  ]
 
 export const PetRoutingModule = RouterModule.forChild(routes);

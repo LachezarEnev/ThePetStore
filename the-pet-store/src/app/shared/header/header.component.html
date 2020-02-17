@@ -35,16 +35,18 @@
       <ul class="navbar-nav navbar-right">          
       <li *ngIf='!isLoggedIn' class="nav-item">
         <a class="nav-link" routerLink="/auth/login"><i class="fas fa-user"></i> Profile</a>
-      </li>  
-      <li *ngIf='isLoggedIn' class="nav-item">
-        <a class="nav-link" disabled routerLink="#"><i class="fas fa-user"></i> Hello, {{username}}!</a>
-      </li>    
-      <li *ngIf='isLoggedIn' class="nav-item">
-        <a class="nav-link" routerLink="/pet/my-pets"><i class="fas fa-paw"></i> My Pets</a>
       </li>
+      <li *ngIf='isLoggedIn' class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i>
+          Hello, {{username | uppercase}}!
+        </a>
+        <div class="dropdown-menu bg-dark dropdown:hover>.dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="/pet/my-pets" style="color: orange;"><i class="fas fa-paw"></i> My Pets</a>                             
+      </div>
+      </li> 
       <li *ngIf='isLoggedIn' class="nav-item">
         <a class="nav-link" (click)="logout()"><i class="fas fa-sign-out-alt"></i> Exit</a>
-      </li>
+      </li> 
     </ul>   
     </div>    
   </nav>

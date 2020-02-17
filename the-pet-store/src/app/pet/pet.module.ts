@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CreateComponent } from './create/create.component';
-import { AuthRoutingModule } from '../auth/auth-routing.module';
 import { FormsModule } from '@angular/forms';
 import { AdoptComponent } from './adopt/adopt.component';
 import { BuyComponent } from './buy/buy.component';
@@ -18,8 +17,7 @@ import { CategoryComponent } from './category/category.component';
 @NgModule({
   declarations: [CreateComponent, AdoptComponent, BuyComponent, DetailsComponent, EditComponent, MyPetsComponent, SearchComponent, NoResultComponent, CategoryComponent],
   imports: [
-    CommonModule,
-    AuthRoutingModule,
+    CommonModule,    
     FormsModule,
     PetRoutingModule   
   ]
